@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <title>Könyvespolc</title>
+    <link rel="stylesheet" href="bookshelf.css">
+</head>
+<body>
+    <div class="main" ng-app="bookList" ng-controller="BookShelfController">
+        <div class="addItem">
+            <input ng-model="newAuthor" placeholder="Szerző">
+            <input ng-model="newTitle" placeholder="Könyvcím">
+            <button ng-click="pushItem()">Hozzáad</button>
+        </div>
+        <div style="float:left">
+            <ul>
+                <h2><li style="border-bottom:none;">Szerző:</li></h2>
+                <li ng-repeat="items in authors">
+                    {{items}}
+                </li> 
+            </ul>
+        </div>
+        <div style="float:right">
+            <ul>
+                <h2><li style="border-bottom:none;">Könyvcím:</li></h2>
+                <li ng-repeat="items in titles">
+                    {{items}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="float: right">
+                    <button ng-click="deleteItem($index)">Törlés</button></span>
+                </li> 
+            </ul>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>
